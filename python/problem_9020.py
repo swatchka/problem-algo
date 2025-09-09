@@ -33,6 +33,43 @@
 
 
 # 골드바흐 추측
+
+# def is_prime(x):
+#     # 2보다 작은 수는 소수가 아님
+#     if x < 2:
+#         return False
+#     for i in range(2, int(x**0.5) + 1):
+#         if x % i == 0:  # 나누어떨어지면 소수가 아님
+#             return False
+#     return True  # 끝까지 안 나누어지면 소수
+
+# t = int(input())
+# result = [0] * t
+# result2 = [0] * t
+# for i in range(t):
+#     n = int(input())
+#     if n < 4 or n % 2 == 1:
+#         print("조건에 맞는 입력이 아닙니다.")
+#         break
+#     for diff in prime_list:
+#         p = n - diff  # 후보 소수 p
+#         if is_prime(p):  # p가 소수인지 확인
+#             q = n - p
+#             result[i] = q   # n = p + q 형태이므로 q 계산
+#             if is_prime(q):  # q도 소수인지 확인
+#                 result2[i] = p 
+#                 a, b = sorted((result[i], result2[i]))
+#                 print(a, b)
+#                 break           
+    # for diff in prime_list:
+    #     q = n - diff
+    #     if is_prime(q):
+    #         p = diff
+    #         result[i] = q
+    #         result2[i] = p
+    #         break
+
+# 골드바흐 추측
 def is_prime(x):
     # 2보다 작은 수는 소수가 아님
     if x < 2:
@@ -41,28 +78,23 @@ def is_prime(x):
         if x % i == 0:  # 나누어떨어지면 소수가 아님
             return False
     return True  # 끝까지 안 나누어지면 소수
+
 prime_list = []
 for l in range(10000):
-    if is_prime(l) == True:
-        prime_list[l] = l
+    if is_prime(l):
+        prime_list.append(l)
     
-t = int(input())
-result = [0] * t
-result2 = [0] * t
-for i in range(t):
-    n = int(input())
-    found = False  # 소수 쌍을 찾았는지 여부 저장
-    for diff in prime_list:
-        p = n - diff  # 후보 소수 p
-        if is_prime(p):  # p가 소수인지 확인
-            q = n - p
-            result[i] = q   # n = p + q 형태이므로 q 계산
-            if is_prime(q):  # q도 소수인지 확인
-                result2[i] = p 
-                found = True  # 소수 쌍을 찾았으니 표시
-                break
-for k in range(t):
-    if result[k] < result2[k]:
-        print(result[k], result2[k])
-    if result[k] >= result2[k]:
-        print(result2[k], result[k])
+prime_set = set(prime_list)
+
+
+t = int(input().strip())
+for _ in range(t):
+    n = int(input().strip())
+    
+    a = n // 2
+    while a >= 2:
+        b = n - a
+        if a in prime_set and b in prime_set:
+            print(a, b)
+            break
+        a -= 1
