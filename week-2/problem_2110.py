@@ -35,5 +35,3 @@ while start <= end: # 이분탐색을 활용하여
 print(result)
         
 
-
-    
