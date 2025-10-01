@@ -38,7 +38,6 @@
 # print(binary_search(sorted_liquid))
 
 import sys
-# input = sys.stdin.readline
 n = int(sys.stdin.readline().strip())
 arr = list(map(int, sys.stdin.readline().split()))
 arr.sort()
