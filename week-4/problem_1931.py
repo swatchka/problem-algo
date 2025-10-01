@@ -52,5 +52,3 @@ for meeting_times in cabinet:
         end_time = meeting_times[1]
 
 print(cnt_meeting)
-
-
