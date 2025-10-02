@@ -1,12 +1,8 @@
 import sys
 input = sys.stdin.readline
 
+n = int(input())
 
-n, k = map(int, input().split())
-
-coins = [int(input()) for _ in range(n)]
-
-coins.sort(reverse=True)
 cnt_price = 0
 def best_coins(coins, target_price, idx = 0, cnt = 0):
     
@@ -14,8 +10,7 @@ def best_coins(coins, target_price, idx = 0, cnt = 0):
         return cnt
     
     if idx >= len(coins):
-        return float('inf')
-    
+        return ('inf')   
     coin = coins[idx]
     
     use_cnt = target_price // coin # 쓸수 있는 동전의 갯수 카운트 
@@ -25,4 +20,4 @@ def best_coins(coins, target_price, idx = 0, cnt = 0):
         
     return best_coins(coins, target_price, idx + 1, cnt) # 인덱스를 늘려주면서 다음 동전 사용
         
-print(best_coins(coins, k))
+print(best_coins([5, 2], n))

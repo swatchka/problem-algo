@@ -1,5 +1,4 @@
 # 물건을 선택하지 않을떄
-
 N, K = map(int, input().split())
 Backpack = []
 Backpack.append(0)
