@@ -15,4 +15,4 @@ for i in range(n): # 탑 갯수만큼 반복과 동시에 인덱스 카운팅
     stack.append((i, heights[i])) # 현재 인덱스와 높이를 스택에 추가
     
     
-print(" ".join(map(str, result))) # 결과 출력
+print(" ".join(map(str, result)))
